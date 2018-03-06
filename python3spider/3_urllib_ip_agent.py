@@ -20,25 +20,22 @@
 
 from urllib import request
 
-
-
 if __name__ == '__main__':
-    #该网站是测试自己IP为多少的网址，服务器会返回访问者的IP。
-    url = "http://www.whatismyip.com.tw/"
-    #这是代理IP
-    proxy = {'http':'203.174.112.13:3128'}
-    #创建ProxyHandler
+    # 该网站是测试自己IP为多少的网址，服务器会返回访问者的IP。
+    #url = "http://www.whatismyip.com.tw/"
+    url = 'https://www.csdn.net/'
+    # 这是代理IP
+    proxy = {'http': '49.79.195.82:61234'}
+    # 创建ProxyHandler
     proxy_support = request.ProxyHandler(proxies=proxy)
-    #创建Opener
+    # 创建Opener
     opener = request.build_opener(proxy_support)
-    #添加User Angent
-    opener.addheaders=[('Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19')]
-    #安装Opener
-    #request.install_opener(opener)
-    #使用自己安装好的opener
+    # 添加User Angent
+    opener.addheaders = [('Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19')]
+    # 安装Opener
+    request.install_opener(opener)
+    # 使用自己安装好的opener
     response = request.urlopen(url)
-    
+
     html = response.read().decode('utf-8')
     print(html)
-    
-    
