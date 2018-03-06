@@ -89,3 +89,4 @@ ENV/
 
 # Rope project settings
 .ropeproject
+python3spider/1_urllib.py
